@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  root 'favorites#index'
+  #root 'photos#index'
+
+  devise_for :users
+
   # Routes for the Venue resource:
   # CREATE
   get "/venues/new", :controller => "venues", :action => "new"
@@ -16,8 +21,6 @@ Rails.application.routes.draw do
   # DELETE
   get "/delete_venue/:id", :controller => "venues", :action => "destroy"
   #------------------------------
-
-  root "favorites#index"
 
   # Routes for the Neighborhood resource:
   # CREATE
@@ -103,5 +106,7 @@ Rails.application.routes.draw do
   # DELETE
   get "/delete_favorite/:id", :controller => "favorites", :action => "destroy"
   #------------------------------
+
+
 
 end
